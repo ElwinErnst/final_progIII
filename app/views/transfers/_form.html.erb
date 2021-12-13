@@ -1,0 +1,42 @@
+<%= form_with(model: transfer) do |form| %>
+  <% if transfer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(transfer.errors.count, "error") %> prohibited this transfer from being saved:</h2>
+
+      <ul>
+        <% transfer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.datetime_select :date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :concept %>
+    <%= form.text_field :concept %>
+  </div>
+
+  <div class="field">
+    <%= form.label :active %>
+    <%= form.text_field :active %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pasive %>
+    <%= form.text_field :pasive %>
+  </div>
+
+    <div class="form-group">
+      <%= form.label :category_id %> <br>
+      <%= form.collection_select(:category_id, Category.where.not(:id => Account.all.map(&:account_id)), :id, :name)   %>
+    </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @transfer.date %>
+</p>
+
+<p>
+  <strong>Concept:</strong>
+  <%= @transfer.concept %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @transfer.active %>
+</p>
+
+<p>
+  <strong>Pasive:</strong>
+  <%= @transfer.pasive %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @transfer.account_id %>
+</p>
+
+<%= link_to 'Edit', edit_transfer_path(@transfer) %> |
+<%= link_to 'Back', transfers_path %>

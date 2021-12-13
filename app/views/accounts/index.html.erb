@@ -1,0 +1,63 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Accounts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>From</th>
+      <th>Expires</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accounts.each do |account| %>
+      <% if current_user == account.user_id %>
+      <tr>
+        <td><%= account.name %></td>
+        <td><%= account.amount %></td>
+        <td><%= account.from %></td>
+        <td><%= account.expires %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+
+   <%= paginate @accounts %>
+  </table>
+  <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Amount</th>
+      <th>From</th>
+      <th>Expires</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @accounts.each do |account| %>
+      <% if current_user == account.user_id %>
+      <% if account.from >= Time.now <= account.expires %>
+      <tr>
+        <td><%= account.name %></td>
+        <td><%= account.amount %></td>
+        <td><%= account.from %></td>
+        <td><%= account.expires %></td>
+        <td><%= link_to 'Show', account %></td>
+        <td><%= link_to 'Edit', edit_account_path(account) %></td>
+        <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+      <% end %>
+    <% end %>
+  </tbody>
+   <%= paginate @accounts %>
+
+
+<br>
+
+<%= link_to 'New Account', new_account_path %>

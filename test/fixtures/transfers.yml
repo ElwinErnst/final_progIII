@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-12-13 18:55:18
+  concept: MyString
+  active: 1.5
+  pasive: 1.5
+  account: one
+
+two:
+  date: 2021-12-13 18:55:18
+  concept: MyString
+  active: 1.5
+  pasive: 1.5
+  account: two
